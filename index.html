@@ -164,25 +164,7 @@
   }
   .ytm-btn:active { background: #ff3b3011; }
 
-  /* Install banner */
-  .install-banner {
-    position: fixed;
-    bottom: 10px; left: 50%; transform: translateX(-50%);
-    background: #111; color: #fff;
-    font-size: 0.68rem; line-height: 1.7;
-    padding: 10px 18px;
-    border-radius: 12px;
-    text-align: center;
-    max-width: 92vw;
-    z-index: 99;
-    box-shadow: 0 4px 20px #0003;
-  }
-  .install-banner button {
-    margin-top: 4px;
-    background: #fff; color: #111;
-    border: none; border-radius: 8px;
-    padding: 3px 14px; font-size: 0.7rem; cursor: pointer;
-  }
+
 
   /* Finish */
   .finish {
@@ -234,11 +216,7 @@
   <button class="btn-reset" style="margin-top:16px;font-size:1rem;padding:12px 32px;" onclick="resetTimer()">もう一度</button>
 </div>
 
-<div class="install-banner" id="installBanner">
-  📲 <strong>ホーム画面に追加</strong>すると即起動できます<br>
-  Safari → 共有ボタン →「ホーム画面に追加」
-  <br><button onclick="this.closest('.install-banner').remove()">閉じる</button>
-</div>
+
 
 <script>
 const WORK = 20, REST = 10, ROUNDS = 8;
@@ -351,11 +329,7 @@ function toggleSound() {
   document.getElementById('soundToggle').className = 'toggle' + (soundOn ? ' on' : '');
 }
 
-// Hide install banner if already PWA
-if (window.navigator.standalone) {
-  const b = document.getElementById('installBanner');
-  if (b) b.remove();
-}
+
 
 buildDots();
 </script>
