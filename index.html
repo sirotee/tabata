@@ -227,12 +227,15 @@ function getCtx() {
 }
 function beep(freq, dur, vol=1.0) {
   const c = getCtx();
-  const o = c.createOscillator(), g = c.createGain();
-  o.connect(g); g.connect(c.destination);
-  o.frequency.value = freq;
-  g.gain.setValueAtTime(vol, c.currentTime);
-  g.gain.exponentialRampToValueAtTime(0.001, c.currentTime + dur);
-  o.start(); o.stop(c.currentTime + dur);
+  // 3本重ねて音量底上げ、周波数を2000-4000Hz帯にシフト
+  [freq * 2, freq * 2 + 15, freq * 2 - 15].forEach(f => {
+    const o = c.createOscillator(), g = c.createGain();
+    o.connect(g); g.connect(c.destination);
+    o.frequency.value = Math.min(Math.max(f, 2000), 4000);
+    g.gain.setValueAtTime(vol, c.currentTime);
+    g.gain.exponentialRampToValueAtTime(0.001, c.currentTime + dur);
+    o.start(); o.stop(c.currentTime + dur);
+  });
 }
 
 function buildDots() {
