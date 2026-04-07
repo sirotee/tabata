@@ -49,7 +49,7 @@
   .ring-bg { fill: none; stroke: #eee; stroke-width: 15.6; }
   .ring-progress {
     fill: none; stroke-width: 15.6; stroke-linecap: round;
-    stroke: #ff3b30;
+    stroke: #eb3c34;
     stroke-dasharray: 722;
     stroke-dashoffset: 0;
     transition: stroke-dashoffset 0.9s linear, stroke 0.3s;
@@ -106,12 +106,12 @@
   .dot.done { background: #30d158; }
   .dot.active { background: #30d158; }
   .dot.active-work {
-    background: #ff3b30;
+    background: #eb3c34;
     animation: blink 0.6s ease-in-out infinite;
   }
 
   @keyframes blink {
-    0%, 100% { opacity: 1; box-shadow: 0 0 8px #ff3b3088; }
+    0%, 100% { opacity: 1; box-shadow: 0 0 8px #eb3c3488; }
     50% { opacity: 0.2; box-shadow: none; }
   }
 
@@ -121,7 +121,7 @@
     letter-spacing: 0.15em;
     padding: min(1.5vh, 14px) min(7vw, 52px);
     border: none; border-radius: 16px;
-    background: #ff3b30; color: #fff;
+    background: #eb3c34; color: #fff;
     cursor: pointer;
     transition: background 0.3s, transform 0.1s;
     user-select: none;
@@ -147,14 +147,14 @@
     font-size: min(2.8vw, 5vh);
     letter-spacing: 0.1em;
     padding: min(1vh, 8px) min(4vw, 24px);
-    border: 2px solid #ff3b30;
+    border: 2px solid #eb3c34;
     border-radius: 12px;
-    background: transparent; color: #ff3b30;
+    background: transparent; color: #eb3c34;
     cursor: pointer; text-decoration: none;
     display: inline-block;
     user-select: none;
   }
-  .ytm-btn:active { background: #ff3b3011; }
+  .ytm-btn:active { background: #eb3c3411; }
 
   /* Finish */
   .finish {
@@ -253,7 +253,7 @@ function buildDots() {
 function render() {
   const total = isWork ? WORK : REST;
   ring.style.strokeDashoffset = CIRC * (1 - timeLeft / total);
-  const color = isWork ? '#ff3b30' : '#30d158';
+  const color = isWork ? '#eb3c34' : '#30d158';
   ring.style.stroke = color;
   phaseBadge.style.background = color;
   phaseBadge.textContent = isWork ? 'WORK' : 'REST';
@@ -307,7 +307,7 @@ function resetTimer() {
   phaseBadge.textContent = 'READY';
   phaseBadge.style.background = '#ccc';
   ring.style.strokeDashoffset = 0;
-  ring.style.stroke = '#ff3b30';
+  ring.style.stroke = '#eb3c34';
   roundLabel.textContent = `ROUND 1 / ${ROUNDS}`;
   timeNum.textContent = WORK;
   buildDots();
